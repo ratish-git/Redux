@@ -1,7 +1,8 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { enquiryList } from "../action";
 import PropTypes from "prop-types";
+import DisplayItems from "../component/Display";
 
 class Home extends Component {
   componentDidMount() {
@@ -9,12 +10,17 @@ class Home extends Component {
   }
 
   render() {
-    return "Practising Redux... Go to Console. To learn More.";
+    return (
+      <div>
+        <h1>"Practising Redux... Go to Console. To learn More."</h1>
+        <DisplayItems dataList={this.props.finalState}></DisplayItems>
+      </div>
+    );
   }
 }
 
 function mapStateToProps(state) {
-  console.log(state);
+  return { finalState: state.enquiry };
 }
 
 Home.prototypes = {
